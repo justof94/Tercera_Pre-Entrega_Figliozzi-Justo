@@ -1,0 +1,49 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Equipos de Red
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center">
+                    <h3>Base de datos con Equipos de red</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Nivel de tensión</th>
+                <th>Edificio</th>
+                <th>Gabinete</th>
+                <th>Ip</th>
+                <th>Mascara subred</th>
+                <th>Default gateway</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for c in equiposRed %}
+                    <tr>
+                        <td>{{c.nombre}}</td>
+                        <td>{{c.descripcion}}</td>
+                        <td>{{c.nivel_tension}}</td>
+                        <td>{{c.edificio}}</td>
+                        <td>{{c.gabinete}}</td>
+                        <td>{{c.ip}}</td>
+                        <td>{{c.mask}}</td>
+                        <td>{{c.defGw}}</td>
+                    </tr> 
+                {% endfor %}  
+        </tbody>
+    </table>
+
+{% endblock contenido %}
